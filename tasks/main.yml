@@ -1,0 +1,28 @@
+---
+- name: Copiar logrotate.conf principal
+  copy:
+    src: "{{ logrotate_conf_src }}"
+    dest: "{{ logrotate_conf_dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: Asegurar que el directorio logrotate.d existe
+  file:
+    path: "{{ logrotate_d_dir_dest }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copiar configuraciones individuales a logrotate.d
+  copy:
+    src: "{{ logrotate_d_dir_src }}/{{ item }}"
+    dest: "{{ logrotate_d_dir_dest }}/{{ item }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+  loop: "{{ logrotate_d_files }}"
+

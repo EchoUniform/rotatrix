@@ -1,0 +1,43 @@
+################################################################################
+#                                                                              #
+#                  ROTACIÓN DEL LOG DE AUTENTICACIÓN FALLIDA                   #
+#                                                                              #
+################################################################################
+
+# /var/log/btmp registra los intentos fallidos de login y se suele rotar con
+# menos frecuencia que otros logs, por tratarse de un log binario de
+# autenticación consultado con lastb
+
+/var/log/btmp {
+
+	# No mostrar error si el archivo no existe
+	missingok
+
+	# No rotar si el archivo está vacío
+	notifempty
+
+	# Rotar el log mensualmente
+	monthly
+
+	# Conservar 12 archivos rotados
+	rotate 12
+
+	# No mantener logs de más de 366 días,
+	# incluso si no se alcanzan las 12 rotaciones
+	maxage 366
+
+	# Solo rotar si el archivo supera 1MB
+	minsize 1M
+
+	# Crear el nuevo archivo de log tras la rotación, con permisos 0660,
+	# propietario root y grupo utmp (como requiere este archivo especial)
+	create 0660 root utmp
+
+	# Añadir la fecha como sufijo en el nombre del archivo rotado
+	dateext
+
+	# No se comprime para preservar la legibilidad binaria con
+	# herammientas como 'lastb'
+	nocompress
+
+}

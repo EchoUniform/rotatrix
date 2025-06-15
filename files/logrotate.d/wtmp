@@ -1,0 +1,44 @@
+################################################################################
+#                                                                              #
+#                     ROTACIÓN DEL LOG DE ACCESOS EXITOSOS                     #
+#                                                                              #
+################################################################################
+
+# /var/log/wtmp registra los accesos exitosos, cierres de sesión y reinicios
+# Es un log binario consultado con 'last'. Se rota periódicamente para evitar
+# que crezca indefinidamente, pero conservando un histórico suficiente
+
+/var/log/wtmp {
+
+	# No mostrar error si el archivo no existe
+	missingok
+
+	# No rotar si el archivo está vacío
+	notifempty
+
+	# Rotar el log mensualmente
+	monthly
+
+	# Conservar 12 archivos rotados
+	rotate 12
+
+	# No mantener logs de más de 366 días,
+	# incluso si no se alcanzan las 12 rotaciones
+	maxage 366
+
+	# Solo rotar si el archivo supera 1MB
+	minsize 1M
+
+	# Crear el nuevo archivo de log tras la rotación, con permisos 0664,
+	# propietario root y grupo utmp, requerido por herramientas
+	# como 'who' y 'last'
+	create 0664 root utmp
+
+	# Añadir la fecha como sufijo
+	dateext
+
+	# No se comprime para preservar la legibilidad binaria con
+	# herammientas como 'last'
+	nocompress
+
+}

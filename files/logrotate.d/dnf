@@ -1,0 +1,52 @@
+################################################################################
+#                                                                              #
+#                ROTADO DE FICHEROS DE LA GESTIÓN DE PAQUETES                  #
+#                                                                              #
+################################################################################
+
+# /var/log/dnf.log contiene las operaciones de alto nivel de DNF
+# (instalar, actualizar, etcétera)
+# /var/log/hawkey.log contiene la actividad de la resolución de dependencias
+# /var/log/dnf.rpm.log contiene detalles de paquetes RPM instalados por DNF
+# /var/log/dnf.librepo.log contiene el acceso a repositorios y descargas
+
+/var/log/dnf.log
+/var/log/hawkey.log
+/var/log/dnf.rpm.log
+/var/log/dnf.librepo.log
+{
+
+	# No mostrar error si el archivo no existe
+	missingok
+
+	# No rotar si el archivo está vacío
+	notifempty
+
+	# Rotar el log semanalmente
+	weekly
+
+	# Conservar 14 archivos rotados
+	rotate 14
+
+	# No mantener logs de más de 180 días,
+	# incluso si no se alcanzan las 14 rotaciones
+	maxage 180
+
+	# Solo rotar si el archivo supera 1MB
+	minsize 1M
+
+	# Crear el nuevo archivo de log tras la rotación, con permisos 0644,
+	# propietario root y grupo root
+	create 0644 root root
+
+	# Añadir la fecha como sufijo en el nombre del archivo rotado
+	dateext
+
+	# Comprimir los archivos rotados para ahorrar espacio
+	compress
+
+	# Comprimir a partir del segundo archivo rotado (el más reciente no se
+	# comprime hasta la siguiente rotación)
+	delaycompress
+
+}

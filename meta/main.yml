@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: rotatrix
+  author: Echo Uniform Tech
+  description: Rol de Ansible para la rotación segura, profesional y automatizada de logs en sistemas Linux empresariales mediante logrotate.
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: EL
+      versions:
+        - 9
+
+  galaxy_tags:
+    - system
+    - logs
+    - logrotate
+
+dependencies: []
+

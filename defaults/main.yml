@@ -1,0 +1,16 @@
+---
+# Archivo principal de configuración de logrotate que se desplegará en /etc/logrotate.conf
+logrotate_conf_src: logrotate.conf
+logrotate_conf_dest: /etc/logrotate.conf
+
+# Lista de archivos de configuración individuales que se copiarán a /etc/logrotate.d/
+# Añadir aquí los nombres de los archivos presentes en files/logrotate.d/
+logrotate_d_dir_src: logrotate.d
+logrotate_d_dir_dest: /etc/logrotate.d
+
+logrotate_d_files:
+  - btmp
+  - dnf
+  - rsyslog
+  - wtmp
+
