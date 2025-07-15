@@ -31,6 +31,14 @@ El formato sigue la guía de [Keep a Changelog](https://keepachangelog.com/es-ES
 - **Documentación y ejemplos**
   Ampliar la documentación con más ejemplos, casos de troubleshooting e integración con herramientas de monitorización y alertas
 
+## [0.1.1] - 2025-07-15
+
+### Añadido
+
+- Traducciones al inglés del README y descripción en meta/main.yml para soporte de internacionalización y publicación en Galaxy.
+
+- Documentación actualizada con comentarios bilingües (inglés y español) para mejor accesibilidad.
+
 ## [0.1.0] - 2025-06-14
 
 ### Añadido
