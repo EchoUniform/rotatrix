@@ -1,9 +1,17 @@
 ################################################################################
 #                                                                              #
+#                  PACKAGE MANAGEMENT LOG FILE ROTATION                        #
+#                                                                              #
 #                ROTADO DE FICHEROS DE LA GESTIÓN DE PAQUETES                  #
 #                                                                              #
 ################################################################################
 
+# /var/log/dnf.log contains high-level DNF operations
+# (install, update, etc.)
+# /var/log/hawkey.log contains dependency resolution activity
+# /var/log/dnf.rpm.log contains details of RPM packages installed by DNF
+# /var/log/dnf.librepo.log contains repository access and download activity
+# ---
 # /var/log/dnf.log contiene las operaciones de alto nivel de DNF
 # (instalar, actualizar, etcétera)
 # /var/log/hawkey.log contiene la actividad de la resolución de dependencias
@@ -16,35 +24,58 @@
 /var/log/dnf.librepo.log
 {
 
+	# Do not show an error if the file does not exist
+	# ---
 	# No mostrar error si el archivo no existe
 	missingok
 
+	# Do not rotate if the file is empty
+	# ---
 	# No rotar si el archivo está vacío
 	notifempty
 
+	# Rotate the log weekly
+	# ---
 	# Rotar el log semanalmente
 	weekly
 
+	# Keep 14 rotated log files
+	# ---
 	# Conservar 14 archivos rotados
 	rotate 14
 
+	# Do not keep logs older than 180 days,
+	# even if the 14 rotations have not been used
+	# ---
 	# No mantener logs de más de 180 días,
 	# incluso si no se alcanzan las 14 rotaciones
 	maxage 180
 
+	# Only rotate if the file exceeds 1MB
+	# ---
 	# Solo rotar si el archivo supera 1MB
 	minsize 1M
 
+	# Create a new log file after rotation with 0644 permissions,
+	# owned by root and group root
+	# ---
 	# Crear el nuevo archivo de log tras la rotación, con permisos 0644,
 	# propietario root y grupo root
 	create 0644 root root
 
+	# Add the date as a suffix to the rotated file name
+	# ---
 	# Añadir la fecha como sufijo en el nombre del archivo rotado
 	dateext
 
+	# Compress the rotated files to save space
+	# ---
 	# Comprimir los archivos rotados para ahorrar espacio
 	compress
 
+	# Start compressing from the second rotated file onward
+	# (the most recent remains uncompressed until the next rotation)
+	# ---
 	# Comprimir a partir del segundo archivo rotado (el más reciente no se
 	# comprime hasta la siguiente rotación)
 	delaycompress
