@@ -31,6 +31,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Docs & examples**
   Expand documentation with more examples, troubleshooting, and monitoring/alerting integration tips
 
+## [0.1.1] - 2025-07-15
+
+### Added
+
+- English translations for README and meta/main.yml description to support internationalization and Galaxy publication.
+
+- Updated documentation with bilingual comments (English and Spanish) for better accessibility.
+
 ## [0.1.0] - 2025-06-14
 
 ### Added
@@ -44,4 +52,3 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - README and documentation in Spanish.
 
 - Basic smoke tests and inventory for localhost.
-
