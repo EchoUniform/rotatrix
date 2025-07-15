@@ -10,9 +10,6 @@ El formato sigue la guía de [Keep a Changelog](https://keepachangelog.com/es-ES
 
 ### Mejoras planificadas / Próximamente
 
-- **Traducción al inglés**
-  Añadir `README.md` en inglés y traducir la descripción de `meta/main.yml` para compatibilidad internacional y publicación en Galaxy
-
 - **Parametrización avanzada**
   Permitir definir los valores de rotación (frecuencia, rotaciones, maxage, minsize, etc.) mediante variables y plantillas Jinja2 (no más archivos fijos)
 
@@ -47,4 +44,3 @@ El formato sigue la guía de [Keep a Changelog](https://keepachangelog.com/es-ES
 - Documentación inicial (README) en español.
 
 - Pruebas básicas (smoke tests) e inventario para localhost.
-
