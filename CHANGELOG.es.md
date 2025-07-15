@@ -39,7 +39,7 @@ El formato sigue la guía de [Keep a Changelog](https://keepachangelog.com/es-ES
 
 - Documentación actualizada con comentarios bilingües (inglés y español) para mejor accesibilidad.
 
-## [0.1.0] - 2025-06-14
+## [0.1.0] - 2025-06-15
 
 ### Añadido
 
