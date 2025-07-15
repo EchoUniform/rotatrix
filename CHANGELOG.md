@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Planned / Coming soon
 
-- **English translation**
-  Add `README.md` in English and translate `meta/main.yml` description for international and Galaxy compatibility
-
 - **Advanced parameterization**
   Allow rotation values (frequency, rotate, maxage, minsize, etc.) to be defined by variables and Jinja2 templates (no more fixed config files)
 
