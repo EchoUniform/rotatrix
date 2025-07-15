@@ -1,42 +1,70 @@
 ################################################################################
 #                                                                              #
+#                        SUCCESSFUL ACCESS LOG ROTATION                        #
+#                                                                              #
 #                     ROTACIÓN DEL LOG DE ACCESOS EXITOSOS                     #
 #                                                                              #
 ################################################################################
 
+# /var/log/wtmp records successful logins, logouts, and reboots.
+# It is a binary log queried with 'last'. It is rotated periodically
+# to prevent it from growing indefinitely, while keeping sufficient history.
+# ---
 # /var/log/wtmp registra los accesos exitosos, cierres de sesión y reinicios
 # Es un log binario consultado con 'last'. Se rota periódicamente para evitar
 # que crezca indefinidamente, pero conservando un histórico suficiente
 
 /var/log/wtmp {
 
+	# Do not show an error if the file does not exist
+	# ---
 	# No mostrar error si el archivo no existe
 	missingok
 
+	# Do not rotate if the file is empty
+	# ---
 	# No rotar si el archivo está vacío
 	notifempty
 
+	# Rotate the log monthly
+	# ---
 	# Rotar el log mensualmente
 	monthly
 
+	# Keep 12 rotated log files
+	# ---
 	# Conservar 12 archivos rotados
 	rotate 12
 
+	# Do not keep logs older than 366 days,
+	# even if the 12 rotations have not been used
+	# ---
 	# No mantener logs de más de 366 días,
 	# incluso si no se alcanzan las 12 rotaciones
 	maxage 366
 
+	# Only rotate if the file exceeds 1MB
+	# ---
 	# Solo rotar si el archivo supera 1MB
 	minsize 1M
 
+	# Create a new log file after rotation with 0664 permissions,
+	# owned by root and group utmp, as required by tools
+	# like 'who' and 'last'
+	# ---
 	# Crear el nuevo archivo de log tras la rotación, con permisos 0664,
 	# propietario root y grupo utmp, requerido por herramientas
 	# como 'who' y 'last'
 	create 0664 root utmp
 
+	# Add the date as a suffix
+	# ---
 	# Añadir la fecha como sufijo
 	dateext
 
+	# Do not compress to preserve binary readability with
+	# tools like 'last'
+	# ---
 	# No se comprime para preservar la legibilidad binaria con
 	# herammientas como 'last'
 	nocompress
